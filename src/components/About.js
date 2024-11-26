@@ -25,7 +25,7 @@ const About = () => {
           className="row justify-content-center align-items-center"
         >
           <div className="col-12 col-lg-8 p-4">
-            <p className="lead text-muted">
+            <p className="lead text-muted" style={{ fontSize: "1.1rem" }}>
               🎓 Hi, I'm <span className="fw-bold text-primary">Achumile Kondile</span>, an aspiring developer with a strong foundation in 
               <span className="fw-bold text-dark"> ICT Application Development</span>. I hold a diploma in ICT, and my technical expertise spans 
               <span className="text-primary"> Java, Python, HTML, CSS, JavaScript, React.js, and SQL</span>. I'm gaining experience with mobile app development and always seeking new ways to expand my knowledge of emerging technologies. I thrive in collaborative and dynamic environments, contributing to innovative solutions while continuously improving my skills. My focus is on delivering user-friendly, scalable web and mobile applications that meet both client needs and industry standards. I'm committed to staying updated with the latest trends and best practices, ensuring forward-thinking solutions for every project. I am excited to bring my <span className="fw-bold text-primary">technical skills, problem-solving abilities</span>, and passion for innovation to impactful projects and new opportunities.

@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-5 bg-light text-center">
+    <section id="contacts" className="py-5 bg-light text-center">
       <div className="container">
         {/* Section Title */}
         <h2 className="display-4 mb-4">Contact Me</h2>
@@ -18,7 +18,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn Profile"
-            className="text-decoration-none text-dark"
+            className="text-decoration-none text-dark hover-effect"
           >
             <FaLinkedin />
           </a>
@@ -27,7 +27,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"
-            className="text-decoration-none text-dark"
+            className="text-decoration-none text-dark hover-effect"
           >
             <FaGithub />
           </a>
@@ -36,14 +36,14 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
-            className="text-decoration-none text-dark"
+            className="text-decoration-none text-dark hover-effect"
           >
             <FaWhatsapp />
           </a>
           <a
             href="mailto:achumilekondile@gmail.com"
             aria-label="Email"
-            className="text-decoration-none text-dark"
+            className="text-decoration-none text-dark hover-effect"
           >
             <FaEnvelope />
           </a>

@@ -25,14 +25,19 @@ section {
 }
 
 h1, h2 {
-  color: #0b0909;
+  color: #090a0b;
 }
 
 img {
   width: 150px;
-  border-radius: 50%;
+  height: auto; /* Maintain aspect ratio */
   margin-top: 20px;
+  border: none; /* Ensure there is no border */
+  border-radius: 0; /* Make sure the image is not rounded */
+  box-shadow: none; /* If there’s a shadow causing the effect, remove it */
 }
+
+
 
 /* App.css or Tailwind Custom Styling */
 
@@ -65,6 +70,7 @@ h1 {
   border: 2px solid #ddd;
   border-radius: 12px;
   padding: 20px;
+  height: auto;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -171,4 +177,23 @@ li {
 
 }
 
+.hover-effect:hover {
+  color: #007bff;  /* Change to the desired hover color */
+  transform: scale(1.1);  /* Optional: Increase size on hover */
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.container {
+  max-width: 900px;
+}
+
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
 
