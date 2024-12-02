@@ -1,19 +1,23 @@
 import React from "react";
 import headerImg from "../assets/Media.png";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-import { useEffect } from "react";
-
-// Ensure Bootstrap's JS is loaded to enable the collapse functionality
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Ensure Bootstrap's JS is loaded
 
 const Header = () => {
+  // Function to close the navbar
+  const closeNavbar = () => {
+    const navbarCollapse = document.getElementById("navbarNav");
+    if (navbarCollapse) {
+      navbarCollapse.classList.remove("show");
+    }
+  };
+
   return (
     <>
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">
           <a className="navbar-brand fw-bold" href="#home">
-            {/* Add brand name or logo here */}
             Achumile Kondile
           </a>
           <button
@@ -30,22 +34,22 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link" href="#about">
+                <a className="nav-link" href="#about" onClick={closeNavbar}>
                   About
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#projects">
+                <a className="nav-link" href="#projects" onClick={closeNavbar}>
                   Projects
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#technologies">
+                <a className="nav-link" href="#technologies" onClick={closeNavbar}>
                   Technologies
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#contacts">
+                <a className="nav-link" href="#contacts" onClick={closeNavbar}>
                   Contacts
                 </a>
               </li>
@@ -59,11 +63,11 @@ const Header = () => {
         className="home py-5"
         id="home"
         style={{
-          backgroundColor: "transparent", // Remove background color
+          backgroundColor: "transparent",
           backgroundPosition: "center",
           backgroundSize: "cover",
-          height: "100vh", // Ensure it takes up the full viewport height
-          display: "flex", // Center the content both vertically and horizontally
+          height: "100vh",
+          display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -73,19 +77,19 @@ const Header = () => {
             {/* Text Section */}
             <div className="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
               <h1
-                className="display-4 fw-bold text-dark"
+                className="display-4 fw-bold"
                 style={{
-                  fontFamily: "'Poppins', sans-serif", // Apply Poppins font
-                  fontSize: "3rem", // Adjust font size for large screens
+                  fontFamily: "'Poppins', sans-serif",
+                  fontSize: "3rem",
                 }}
               >
-                Hi, I'm Achumile Kondile
+                Hi, I'm <span style={{ color: "#007bff" }}>Achumile Kondile</span>
               </h1>
               <h2
                 className="h4 text-secondary mt-3"
                 style={{
-                  fontFamily: "'Poppins', sans-serif", // Apply Poppins font
-                  fontSize: "1.5rem", // Adjust font size for smaller devices
+                  fontFamily: "'Poppins', sans-serif",
+                  fontSize: "1.5rem",
                 }}
               >
                 A passionate Software Developer
@@ -93,8 +97,8 @@ const Header = () => {
               <p
                 className="mt-3 text-muted"
                 style={{
-                  fontFamily: "'Poppins', sans-serif", // Apply Poppins font
-                  fontSize: "1rem", // Adjust font size for readability
+                  fontFamily: "'Poppins', sans-serif",
+                  fontSize: "1rem",
                 }}
               >
                 Welcome to my personal portfolio where I showcase my work, skills, and journey.
@@ -107,9 +111,9 @@ const Header = () => {
                 src={headerImg}
                 alt="Portrait of Achumile Kondile, a Software Developer"
                 style={{
-                  width: "80%", // Image stretches to 80% of container's width
-                  height: "auto", // Maintain aspect ratio
-                  border: "none", // Remove any border or outline
+                  width: "80%",
+                  height: "auto",
+                  border: "none",
                 }}
               />
             </div>
