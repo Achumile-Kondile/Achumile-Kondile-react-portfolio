@@ -23,7 +23,7 @@ const Contact = () => {
             <FaLinkedin />
           </a>
           <a
-            href="https://github.com/Achumile861"
+            href="https://github.com/Achumile-Kondile"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"
