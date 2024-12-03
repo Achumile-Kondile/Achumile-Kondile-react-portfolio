@@ -44,7 +44,11 @@ const Header = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#technologies" onClick={closeNavbar}>
+                <a
+                  className="nav-link"
+                  href="#technologies"
+                  onClick={closeNavbar}
+                >
                   Technologies
                 </a>
               </li>
@@ -60,16 +64,17 @@ const Header = () => {
 
       {/* Header Section */}
       <section
-        className="home py-5"
+        className="home"
         id="home"
         style={{
           backgroundColor: "transparent",
           backgroundPosition: "center",
           backgroundSize: "cover",
-          height: "100vh",
+          height: "100vh", // Full viewport height
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          marginTop: "56px", // Adjusted for fixed navbar height
         }}
       >
         <div className="container mt-0 pt-0">
@@ -83,7 +88,8 @@ const Header = () => {
                   fontSize: "3rem",
                 }}
               >
-                Hi, I'm <span style={{ color: "#007bff" }}>Achumile Kondile</span>
+                Hi, I'm{" "}
+                <span style={{ color: "#007bff" }}>Achumile Kondile</span>
               </h1>
               <h2
                 className="h4 text-secondary mt-3"
@@ -101,8 +107,17 @@ const Header = () => {
                   fontSize: "1rem",
                 }}
               >
-                Welcome to my personal portfolio where I showcase my work, skills, and journey.
+                Welcome to my personal portfolio where I showcase my work,
+                skills, and journey.
               </p>
+              {/* Download CV Button */}
+              <a
+                href="/ACHUMILE_KONDILE_Curriculum_Vitae.pdf"
+                download="ACHUMILE_KONDILE_Curriculum_Vitae.pdf"
+                className="btn btn-primary btn-lg shadow"
+              >
+                Download My CV
+              </a>
             </div>
 
             {/* Image Section */}

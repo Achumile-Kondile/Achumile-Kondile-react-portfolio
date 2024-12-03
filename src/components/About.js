@@ -1,16 +1,19 @@
 import { motion } from "framer-motion";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const About = () => {
   return (
     <div
       id="about"
-      className="border-bottom pb-5 bg-light"
-      style={{ fontFamily: "'Poppins', sans-serif" }} // Main font for the section
+      className="py-5 border-bottom bg-light"
+      style={{ fontFamily: "'Poppins', sans-serif" }} // Apply Poppins globally to this section
     >
       {/* Section Title */}
-      <div className="text-center my-5">
-        <h1 className="display-4 font-weight-bold text-dark">
+      <div className="text-center mb-5">
+        <h1
+          className="display-4 font-weight-bold text-dark"
+          style={{ fontFamily: "'Montserrat', sans-serif" }} // Specific font for the title
+        >
           About <span className="text-primary">Me</span>
         </h1>
       </div>
@@ -24,8 +27,42 @@ const About = () => {
           className="row justify-content-center align-items-center"
         >
           <div className="col-12 col-lg-8 p-4">
-            <p className="lead text-muted" style={{ fontSize: "1.1rem", lineHeight: "1.6" }}>
-              🎓 Hi, I'm <span className="fw-bold text-primary" style={{ fontFamily: "'Montserrat', sans-serif" }}>Achumile Kondile</span>, an aspiring developer with a strong foundation in <span className="fw-bold text-dark">ICT Application Development</span>. I hold a diploma in ICT, and my technical expertise spans <span className="text-primary">Java, Python, HTML, CSS, JavaScript, React.js, and SQL</span>. I'm gaining experience with mobile app development and always seeking new ways to expand my knowledge of emerging technologies. I thrive in collaborative and dynamic environments, contributing to innovative solutions while continuously improving my skills. My focus is on delivering user-friendly, scalable web and mobile applications that meet both client needs and industry standards. I'm committed to staying updated with the latest trends and best practices, ensuring forward-thinking solutions for every project. I am excited to bring my <span className="fw-bold text-primary">technical skills, problem-solving abilities</span>, and passion for innovation to impactful projects and new opportunities.
+            <p
+              className="lead text-muted"
+              style={{
+                fontSize: "1.1rem",
+                lineHeight: "1.8",
+                fontFamily: "'Roboto', sans-serif", // Roboto for content text
+              }}
+            >
+              🎓 Hello! I'm{" "}
+              <span
+                className="fw-bold text-primary"
+                style={{ fontFamily: "'Montserrat', sans-serif" }} // Montserrat for highlights
+              >
+                Achumile Kondile
+              </span>
+              , a passionate developer with a diploma in{" "}
+              <span className="fw-bold text-dark">
+                ICT Application Development
+              </span>
+              . My technical skills include{" "}
+              <span className="text-primary">
+                Java, Python, HTML, CSS, JavaScript, React.js, and SQL
+              </span>
+              . I enjoy learning about mobile app development and exploring
+              emerging technologies to enhance my capabilities. I thrive in
+              dynamic, team-oriented environments where I can contribute to
+              innovative projects while honing my skills. My focus is on
+              building scalable, user-friendly applications that meet both
+              client expectations and industry standards. Staying updated with
+              the latest tools and best practices is a priority for me, as I
+              aim to create forward-thinking solutions. I am eager to leverage
+              my{" "}
+              <span className="fw-bold text-primary">
+                technical expertise and problem-solving skills
+              </span>
+              to drive impactful projects and seize exciting new opportunities.
             </p>
           </div>
         </motion.div>

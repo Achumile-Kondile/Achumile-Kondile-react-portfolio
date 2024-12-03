@@ -19,6 +19,49 @@ header {
   padding: 20px;
 }
 
+#about {
+  font-family: "Poppins", sans-serif;
+}
+
+#about h1 {
+  font-family: "Montserrat", sans-serif;
+}
+
+#about p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Adjust header content for smaller screens */
+@media (max-width: 768px) {
+  .home {
+    margin-top: 70px; /* Ensure extra space for fixed navbar */
+    padding: 0 1rem;
+  }
+
+  .home h1 {
+    font-size: 2.5rem; /* Adjust font size */
+    text-align: center; /* Center align text */
+  }
+
+  .home h2 {
+    font-size: 1.25rem; /* Smaller subtitle */
+    text-align: center;
+  }
+
+  .home p {
+    font-size: 0.9rem; /* Smaller paragraph */
+    text-align: center;
+  }
+
+  .home img {
+    width: 100%; /* Make the image responsive */
+    max-width: 300px; /* Set a maximum width */
+    margin: 1rem auto; /* Add spacing */
+  }
+}
+
 section {
   padding: 40px 20px;
   text-align: center;

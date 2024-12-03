@@ -70,56 +70,48 @@ const Contact = () => {
               <strong>Location:</strong> Eastern Cape, King Williams Town
             </p>
 
-            {/* Social Media Links */}
-            <div className="d-flex justify-content-center gap-4 mb-4">
-              <a
-                href="https://www.linkedin.com/in/achumile-kondile/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
-                className="text-decoration-none text-dark d-flex align-items-center justify-content-center rounded-circle bg-light border border-secondary p-3 shadow hover-effect"
-                style={{ width: "60px", height: "60px" }}
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href="https://github.com/Achumile-Kondile"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Profile"
-                className="text-decoration-none text-dark d-flex align-items-center justify-content-center rounded-circle bg-light border border-secondary p-3 shadow hover-effect"
-                style={{ width: "60px", height: "60px" }}
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://wa.me/0725895129"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="text-decoration-none text-dark d-flex align-items-center justify-content-center rounded-circle bg-light border border-secondary p-3 shadow hover-effect"
-                style={{ width: "60px", height: "60px" }}
-              >
-                <FaWhatsapp />
-              </a>
-              <a
-                href="mailto:achumilekondile@gmail.com"
-                aria-label="Email"
-                className="text-decoration-none text-dark d-flex align-items-center justify-content-center rounded-circle bg-light border border-secondary p-3 shadow hover-effect"
-                style={{ width: "60px", height: "60px" }}
-              >
-                <FaEnvelope />
-              </a>
-            </div>
+           {/* Social Media Links */}
+<div className="d-flex flex-wrap justify-content-center gap-2 gap-lg-4 mb-4">
+  <a
+    href="https://www.linkedin.com/in/achumile-kondile/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn Profile"
+    className="text-decoration-none text-dark d-flex align-items-center justify-content-center rounded-circle bg-light border border-secondary p-3 shadow hover-effect"
+    style={{ width: "60px", height: "60px" }}
+  >
+    <FaLinkedin />
+  </a>
+  <a
+    href="https://github.com/Achumile-Kondile"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub Profile"
+    className="text-decoration-none text-dark d-flex align-items-center justify-content-center rounded-circle bg-light border border-secondary p-3 shadow hover-effect"
+    style={{ width: "60px", height: "60px" }}
+  >
+    <FaGithub />
+  </a>
+  <a
+    href="https://wa.me/0725895129"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp"
+    className="text-decoration-none text-dark d-flex align-items-center justify-content-center rounded-circle bg-light border border-secondary p-3 shadow hover-effect"
+    style={{ width: "60px", height: "60px" }}
+  >
+    <FaWhatsapp />
+  </a>
+  <a
+    href="mailto:achumilekondile@gmail.com"
+    aria-label="Email"
+    className="text-decoration-none text-dark d-flex align-items-center justify-content-center rounded-circle bg-light border border-secondary p-3 shadow hover-effect"
+    style={{ width: "60px", height: "60px" }}
+  >
+    <FaEnvelope />
+  </a>
+</div>
 
-            {/* Download CV Button */}
-            <a
-              href="/ACHUMILE KONDILE Curriculum Vitae.pdf"
-              download="ACHUMILE KONDILE Curriculum Vitae.pdf"
-              className="btn btn-primary btn-lg shadow"
-            >
-              Download My CV
-            </a>
           </div>
         </div>
       </div>
