@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div
       id="about"
-      className="py-5 border-bottom bg-light"
+      className="py-5 mt-5 border-bottom bg-light"
       style={{ fontFamily: "'Poppins', sans-serif" }} // Apply Poppins globally to this section
     >
       {/* Section Title */}
