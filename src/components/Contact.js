@@ -70,8 +70,8 @@ const Contact = () => {
               <strong>Location:</strong> Eastern Cape, King Williams Town
             </p>
 
-           {/* Social Media Links */}
-<div className="d-flex flex-wrap justify-content-center gap-2 gap-lg-4 mb-4">
+          {/* Social Media Links */}
+<div className="d-flex justify-content-center gap-3 mb-4">
   <a
     href="https://www.linkedin.com/in/achumile-kondile/"
     target="_blank"
@@ -111,6 +111,7 @@ const Contact = () => {
     <FaEnvelope />
   </a>
 </div>
+
 
           </div>
         </div>
