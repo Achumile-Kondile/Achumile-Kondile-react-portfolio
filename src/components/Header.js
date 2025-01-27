@@ -1,10 +1,10 @@
 import React from "react";
+import { motion } from "framer-motion";
 import headerImg from "../assets/Media.png";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Ensure Bootstrap's JS is loaded
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Header = () => {
-  // Function to close the navbar
   const closeNavbar = () => {
     const navbarCollapse = document.getElementById("navbarNav");
     if (navbarCollapse) {
@@ -12,126 +12,116 @@ const Header = () => {
     }
   };
 
+  const navItems = [
+    { href: "#about", text: "About" },
+    { href: "#projects", text: "Projects" },
+    { href: "#technologies", text: "Technologies" },
+    { href: "#contacts", text: "Contact" }
+  ];
+
   return (
     <>
-      {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav className="navbar navbar-expand-lg fixed-top" style={{
+        background: "rgba(255, 255, 255, 0.95)",
+        backdropFilter: "blur(10px)",
+        boxShadow: "0 2px 20px rgba(0,0,0,0.1)"
+      }}>
         <div className="container">
-          <a className="navbar-brand fw-bold" href="#home">
-            Achumile Kondile
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+          <motion.a 
+            className="navbar-brand fw-bold"
+            href="#home"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            style={{ color: "#2d3436", fontSize: "1.4rem" }}
           >
+            Achumile Kondile
+          </motion.a>
+          <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="#about" onClick={closeNavbar}>
-                  About
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#projects" onClick={closeNavbar}>
-                  Projects
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="#technologies"
-                  onClick={closeNavbar}
+              {navItems.map((item, index) => (
+                <motion.li 
+                  key={index} 
+                  className="nav-item"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  Technologies
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#contacts" onClick={closeNavbar}>
-                  Contacts
-                </a>
-              </li>
+                  <a 
+                    className="nav-link px-3" 
+                    href={item.href} 
+                    onClick={closeNavbar}
+                    style={{ color: "#2d3436", fontWeight: "500" }}
+                  >
+                    {item.text}
+                  </a>
+                </motion.li>
+              ))}
             </ul>
           </div>
         </div>
       </nav>
 
-      {/* Header Section */}
       <section
-        className="home"
         id="home"
+        className="min-vh-100 d-flex align-items-center"
         style={{
-          backgroundColor: "transparent",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          height: "100vh", // Full viewport height
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "56px", // Adjusted for fixed navbar height
+          background: "linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%)",
+          paddingTop: "5rem"
         }}
       >
-        <div className="container mt-0 pt-0">
+        <div className="container">
           <div className="row align-items-center">
-            {/* Text Section */}
-            <div className="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
-              <h1
-                className="display-4 fw-bold"
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: "3rem",
-                }}
-              >
-                Hi, I'm{" "}
-                <span style={{ color: "#007bff" }}>Achumile Kondile</span>
+            <motion.div 
+              className="col-lg-6 text-center text-lg-start"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="display-4 fw-bold mb-4" style={{ color: "#2d3436" }}>
+                Hi, I'm <span style={{ color: "#6c5ce7" }}>Achumile Kondile</span>
               </h1>
-              <h2
-                className="h4 text-secondary mt-3"
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: "1.5rem",
-                }}
-              >
+              <h2 className="h3 text-secondary mb-4">
                 A passionate Software Developer
               </h2>
-              <p
-                className="mt-3 text-muted"
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: "1rem",
-                }}
-              >
+              <p className="lead mb-4" style={{ color: "#636e72" }}>
                 Welcome to my personal portfolio where I showcase my work,
                 skills, and journey.
               </p>
-              {/* Download CV Button */}
-              <a
+              <motion.a
                 href="/ACHUMILE_KONDILE_Curriculum_Vitae.pdf"
-                download="ACHUMILE_KONDILE_Curriculum_Vitae.pdf"
-                className="btn btn-primary btn-lg shadow"
+                download
+                className="btn btn-lg px-4 py-3"
+                style={{ 
+                  background: "#6c5ce7",
+                  color: "white",
+                  borderRadius: "50px"
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Download My CV
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
 
-            {/* Image Section */}
-            <div className="col-lg-6 text-center p-0">
+            <motion.div 
+              className="col-lg-6 text-center mt-5 mt-lg-0"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
               <img
                 src={headerImg}
-                alt="Portrait of Achumile Kondile, a Software Developer"
+                alt="Achumile Kondile"
+                className="img-fluid"
                 style={{
-                  width: "80%",
-                  height: "auto",
-                  border: "none",
+                  maxWidth: "80%",
+                  filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.15))"
                 }}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

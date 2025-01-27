@@ -1,69 +1,67 @@
+import React from "react";
 import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const About = () => {
   return (
-    <div
-      id="about"
-      className="py-5 mt-5 border-bottom bg-light"
-      style={{ fontFamily: "'Poppins', sans-serif" }} // Apply Poppins globally to this section
+    <div 
+      id="about" 
+      className="py-5"
+      style={{ 
+        background: "linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%)"
+      }}
     >
-      {/* Section Title */}
-      <div className="text-center mb-5">
-        <h1
-          className="display-4 font-weight-bold text-dark"
-          style={{ fontFamily: "'Montserrat', sans-serif" }} // Specific font for the title
-        >
-          About <span className="text-primary">Me</span>
-        </h1>
-      </div>
-
-      <div className="container px-3 px-lg-5">
-        {/* Text Section */}
+      <div className="container">
         <motion.div
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5 }}
-          className="row justify-content-center align-items-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-5"
         >
-          <div className="col-12 col-lg-8 p-4">
-            <p
-              className="lead text-muted"
+          <h2 className="display-4 fw-bold mb-3" style={{ color: "#2d3436" }}>
+            About <span style={{ color: "#6c5ce7" }}>Me</span>
+          </h2>
+          <div 
+            className="mx-auto" 
+            style={{ 
+              width: "60px", 
+              height: "4px", 
+              background: "#6c5ce7", 
+              marginTop: "1rem" 
+            }}
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="row justify-content-center"
+        >
+          <div className="col-lg-8">
+            <div 
+              className="p-4 rounded-lg"
               style={{
-                fontSize: "1.1rem",
-                lineHeight: "1.8",
-                fontFamily: "'Roboto', sans-serif", // Roboto for content text
+                background: "rgba(255, 255, 255, 0.9)",
+                backdropFilter: "blur(10px)",
+                boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)"
               }}
             >
-              🎓 Hello! I'm{" "}
-              <span
-                className="fw-bold text-primary"
-                style={{ fontFamily: "'Montserrat', sans-serif" }} // Montserrat for highlights
-              >
-                Achumile Kondile
-              </span>
-              , a passionate developer with a diploma in{" "}
-              <span className="fw-bold text-dark">
-                ICT Application Development
-              </span>
-              . My technical skills include{" "}
-              <span className="text-primary">
-                Java, Python, HTML, CSS, JavaScript, React.js, and SQL
-              </span>
-              . I enjoy learning about mobile app development and exploring
-              emerging technologies to enhance my capabilities. I thrive in
-              dynamic, team-oriented environments where I can contribute to
-              innovative projects while honing my skills. My focus is on
-              building scalable, user-friendly applications that meet both
-              client expectations and industry standards. Staying updated with
-              the latest tools and best practices is a priority for me, as I
-              aim to create forward-thinking solutions. I am eager to leverage
-              my{" "}
-              <span className="fw-bold text-primary">
-                technical expertise and problem-solving skills
-              </span>
-              to drive impactful projects and seize exciting new opportunities.
-            </p>
+              <p className="lead" style={{ color: "#636e72", lineHeight: "1.8" }}>
+                🎓 Hello! I'm <span style={{ color: "#6c5ce7", fontWeight: "600" }}>Achumile Kondile</span>,
+                a passionate developer with a diploma in <span style={{ fontWeight: "600" }}>ICT Application Development</span>.
+                My technical skills include <span style={{ color: "#6c5ce7" }}>Java, Python, HTML, CSS, JavaScript, React.js, 
+                and SQL</span>. I enjoy learning about mobile app development and exploring emerging technologies to enhance 
+                my capabilities.
+              </p>
+              <p className="lead mb-0" style={{ color: "#636e72", lineHeight: "1.8" }}>
+                I thrive in dynamic, team-oriented environments where I can contribute to innovative projects while honing 
+                my skills. My focus is on building scalable, user-friendly applications that meet both client expectations 
+                and industry standards. I am eager to leverage my <span style={{ color: "#6c5ce7", fontWeight: "600" }}>
+                technical expertise and problem-solving skills</span> to drive impactful projects and seize exciting new 
+                opportunities.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -1,153 +1,158 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
-import projectImage1 from "../assets/Portfolio.png"; // Add the path to your image
-import projectImage2 from "../assets/Expense Tracker.png"; // Add the path to your image
-import projectImage3 from "../assets/Salon.png"; // Add the path to your Pearl Beauty Salon image
+import projectImage1 from "../assets/Portfolio.png";
+import projectImage2 from "../assets/Expense Tracker.png";
+import projectImage3 from "../assets/Salon.png";
 
 const Projects = () => {
-  // State to manage visibility of languages
-  const [showLanguages1, setShowLanguages1] = useState(false);
-  const [showLanguages2, setShowLanguages2] = useState(false);
-  const [showLanguages3, setShowLanguages3] = useState(false); // State for the new project
+  const [activeProject, setActiveProject] = useState(null);
 
-  const toggleLanguages1 = () => {
-    setShowLanguages1((prev) => !prev);
-    setShowLanguages2(false); // Close the second project languages if the first is opened
-    setShowLanguages3(false); // Close the third project languages if the first is opened
-  };
+  const projects = [
+    {
+      id: 1,
+      title: "Portfolio Website",
+      image: projectImage1,
+      description: "A responsive personal portfolio website built with React. This website highlights my skills and projects as a software developer.",
+      languages: ["React.js", "HTML5", "CSS3"],
+    },
+    {
+      id: 2,
+      title: "Expense Tracker",
+      image: projectImage2,
+      description: "A simple expense tracker app built with React and Node.js. This app allows users to track their expenses, manage categories, and view detailed reports.",
+      languages: ["React.js", "Node.js"],
+    },
+    {
+      id: 3,
+      title: "Pearl Beauty Salon",
+      image: projectImage3,
+      description: "A stunning website for a beauty salon that showcases services and promotes a luxurious experience.",
+      languages: ["HTML", "CSS", "JavaScript"],
+    },
+  ];
 
-  const toggleLanguages2 = () => {
-    setShowLanguages2((prev) => !prev);
-    setShowLanguages1(false); // Close the first project languages if the second is opened
-    setShowLanguages3(false); // Close the third project languages if the second is opened
-  };
-
-  const toggleLanguages3 = () => {
-    setShowLanguages3((prev) => !prev);
-    setShowLanguages1(false); // Close the first project languages if the third is opened
-    setShowLanguages2(false); // Close the second project languages if the third is opened
+  const toggleLanguages = (id) => {
+    setActiveProject(activeProject === id ? null : id);
   };
 
   return (
     <div
-      className="bg-light min-vh-100"
+      className="py-5"
       style={{
         fontFamily: "'Poppins', sans-serif",
-        scrollMarginTop: "4rem", // Offset for the fixed navbar
+        scrollMarginTop: "4rem",
+        background: "linear-gradient(to right, #f8f9fa, #e9ecef)",
       }}
       id="projects"
     >
-      <section className="container py-5">
-        <h2 className="text-center mb-5 display-6">My Projects</h2>
-        <div className="row gy-4">
-          {/* Project 1 */}
-          <div className="col-md-6">
-            <div className="card border-0 shadow-sm h-100">
-              <img
-                src={projectImage1}
-                alt="Portfolio Website"
-                className="card-img-top"
-                style={{
-                  objectFit: "cover",
-                  height: "200px",
-                }}
-              />
-              <div className="card-body">
-                <h3 className="h5 text-primary">Portfolio Website</h3>
-                <p className="text-muted mb-0">
-                  A responsive personal portfolio website built with React. This website highlights my skills and projects as a software developer.
-                </p>
-                <div className="mt-3">
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={toggleLanguages1}
-                  >
-                    Languages Used
-                  </button>
-                  {showLanguages1 && (
-                    <ul className="list-unstyled mt-2 bg-light p-2 border rounded">
-                      <li className="text-primary">React.js</li>
-                      <li className="text-primary">HTML5</li>
-                      <li className="text-primary">CSS3</li>
-                    </ul>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 2 */}
-          <div className="col-md-6">
-            <div className="card border-0 shadow-sm h-100">
-              <img
-                src={projectImage2}
-                alt="Expense Tracker"
-                className="card-img-top"
-                style={{
-                  objectFit: "cover",
-                  height: "200px",
-                }}
-              />
-              <div className="card-body">
-                <h3 className="h5 text-primary">Expense Tracker</h3>
-                <p className="text-muted mb-0">
-                  A simple expense tracker app built with React and Node.js. This app allows users to track their expenses, manage categories, and view detailed reports.
-                </p>
-                <div className="mt-3">
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={toggleLanguages2}
-                  >
-                    Languages Used
-                  </button>
-                  {showLanguages2 && (
-                    <ul className="list-unstyled mt-2 bg-light p-2 border rounded">
-                      <li className="text-primary">React.js</li>
-                      <li className="text-primary">Node.js</li>
-                    </ul>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 3: Pearl Beauty Salon */}
-          <div className="col-md-6">
-            <div className="card border-0 shadow-sm h-100">
-              <img
-                src={projectImage3}
-                alt="Pearl Beauty Salon"
-                className="card-img-top"
-                style={{
-                  objectFit: "cover",
-                  height: "200px",
-                }}
-              />
-              <div className="card-body">
-                <h3 className="h5 text-primary">Pearl Beauty Salon</h3>
-                <p className="text-muted mb-0">
-                  A stunning website for a beauty salon that showcases services and promotes a luxurious experience.
-                </p>
-                <div className="mt-3">
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={toggleLanguages3}
-                  >
-                    Languages Used
-                  </button>
-                  {showLanguages3 && (
-                    <ul className="list-unstyled mt-2 bg-light p-2 border rounded">
-                      <li className="text-primary">HTML</li>
-                      <li className="text-primary">CSS</li>
-                      <li className="text-primary">JavaScript</li>
-                    </ul>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="container"
+      >
+        <div className="text-center mb-5">
+          <h2 className="display-4 fw-bold" style={{ color: "#2d3436" }}>
+            My Projects
+          </h2>
+          <div 
+            className="mx-auto" 
+            style={{ 
+              width: "60px", 
+              height: "4px", 
+              background: "#6c5ce7", 
+              marginTop: "1rem" 
+            }}
+          />
         </div>
-      </section>
+
+        <div className="row g-4">
+          {projects.map((project) => (
+            <motion.div
+              key={project.id}
+              className="col-md-6 col-lg-4"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.div
+                className="card h-100 border-0 rounded-lg overflow-hidden"
+                whileHover={{ y: -5 }}
+                style={{
+                  background: "rgba(255, 255, 255, 0.9)",
+                  backdropFilter: "blur(10px)",
+                  boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
+                }}
+              >
+                <div className="position-relative">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="card-img-top"
+                    style={{
+                      height: "200px",
+                      objectFit: "cover",
+                      transition: "transform 0.3s ease",
+                    }}
+                  />
+                  <div 
+                    className="position-absolute top-0 start-0 w-100 h-100"
+                    style={{
+                      background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%)",
+                      opacity: 0.3,
+                    }}
+                  />
+                </div>
+
+                <div className="card-body p-4">
+                  <h3 className="h4 mb-3" style={{ color: "#6c5ce7" }}>
+                    {project.title}
+                  </h3>
+                  <p className="text-muted mb-3" style={{ fontSize: "0.95rem" }}>
+                    {project.description}
+                  </p>
+                  <motion.button
+                    className="btn btn-outline-primary border-2 rounded-pill px-4"
+                    onClick={() => toggleLanguages(project.id)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    languages
+                  </motion.button>
+
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{
+                      height: activeProject === project.id ? "auto" : 0,
+                      opacity: activeProject === project.id ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3 }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    <div className="mt-3 p-3 rounded-lg" style={{ background: "rgba(108, 92, 231, 0.1)" }}>
+                      {project.languages.map((lang, index) => (
+                        <span
+                          key={index}
+                          className="badge me-2 mb-2"
+                          style={{
+                            background: "#6c5ce7",
+                            color: "white",
+                            padding: "8px 16px",
+                            fontSize: "0.85rem",
+                          }}
+                        >
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };
