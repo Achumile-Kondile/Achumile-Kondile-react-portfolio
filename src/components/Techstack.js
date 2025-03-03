@@ -40,32 +40,68 @@ const TechStack = () => {
     { Component: SiVisualstudio, color: "#5C2D91", name: "Visual Studio", duration: 2.8 },
   ];
 
+  // Inline styles
+  const styles = {
+    techStackSection: {
+      fontFamily: "'Poppins', sans-serif",
+      scrollMarginTop: "4rem",
+      background: "#000000", // Solid black
+      padding: "3rem 0",
+    },
+    heading: {
+      color: "#8F37B1", // #8F37B1
+      fontSize: "2.5rem",
+      fontWeight: "bold",
+    },
+    divider: {
+      width: "60px",
+      height: "4px",
+      background: "#3623F", // #3623F
+      margin: "1rem auto",
+    },
+    card: {
+      background: "rgba(255, 255, 255, 0.1)", // Semi-transparent white
+      backdropFilter: "blur(10px)",
+      boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
+      borderRadius: "10px",
+      overflow: "hidden",
+      border: "1px solid #3623F", // Subtle border
+    },
+    cardText: {
+      color: "#FFFFFF", // White text for readability
+      fontSize: "0.9rem",
+      fontWeight: "500",
+    },
+  };
+
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <div
-      id="tech-stack"
+      id="tech-stack" // Ensure this matches the href in the header menu
       className="py-5"
-      style={{
-        fontFamily: "'Poppins', sans-serif",
-        scrollMarginTop: "4rem",
-        background: "linear-gradient(to right, #f8f9fa, #e9ecef)",
-      }}
+      style={styles.techStackSection}
     >
       <motion.div
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -50 }}
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
         transition={{ duration: 0.8 }}
         className="text-center mb-5"
       >
-        <h2 className="display-4 fw-bold" style={{ color: "#2d3436" }}>
-          Tech Stack
-        </h2>
-        <div className="mx-auto" style={{ width: "60px", height: "4px", background: "#6c5ce7", marginTop: "1rem" }}></div>
+        <h2 style={styles.heading}>Tech Stack</h2>
+        <div style={styles.divider} />
       </motion.div>
 
       <motion.div
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.8 }}
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        transition={{ delay: 0.2, duration: 0.8 }}
         className="container"
       >
         <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center">
@@ -81,11 +117,7 @@ const TechStack = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="card h-100 border-0 rounded-lg"
-                style={{
-                  background: "rgba(255, 255, 255, 0.9)",
-                  backdropFilter: "blur(10px)",
-                  boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
-                }}
+                style={styles.card}
               >
                 <div className="card-body d-flex flex-column align-items-center justify-content-center p-4">
                   <Component
@@ -95,15 +127,48 @@ const TechStack = () => {
                       marginBottom: "0.5rem",
                     }}
                   />
-                  <p className="card-text mb-0 fw-medium" style={{ color: "#2d3436", fontSize: "0.9rem" }}>
-                    {name}
-                  </p>
+                  <p style={styles.cardText}>{name}</p>
                 </div>
               </motion.div>
             </motion.div>
           ))}
         </div>
       </motion.div>
+
+      {/* Inline CSS for animations and responsiveness */}
+      <style>
+        {`
+          @keyframes float {
+            0% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-10px);
+            }
+            100% {
+              transform: translateY(0);
+            }
+          }
+
+          @media (max-width: 768px) {
+            h2 {
+              font-size: 2rem !important;
+            }
+            .card-text {
+              font-size: 0.8rem !important;
+            }
+          }
+
+          @media (max-width: 576px) {
+            h2 {
+              font-size: 1.75rem !important;
+            }
+            .card-text {
+              font-size: 0.75rem !important;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
