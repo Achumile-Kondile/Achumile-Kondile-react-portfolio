@@ -4,7 +4,7 @@ This is a responsive portfolio website created using **React**and **Bootstrap**.
 
 - **About Me**: An overview of who I am and my background.
 - **Projects**: A showcase of the software development projects I’ve worked on.
-- **Technologies**: A list of tools and languages I’m familiar with.
+- **Tech Stack**: A list of tools and languages I’m familiar with.
 - **Contact**: Links to my social profiles and a downloadable CV.
 
 ## Features
