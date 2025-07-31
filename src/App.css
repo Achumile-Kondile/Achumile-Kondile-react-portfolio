@@ -1,242 +1,331 @@
 /* src/App.css */
-/* index.css or App.css */
 
+/* --- General Styles --- */
 body {
-  background-color: #ffffff74; /* baby pink */
-  font-family: 'Arial', sans-serif; /* Optional: Add a font for better readability */
+  background-color: #FFF0F5; /* Lavender Blush - a soft, very light pink */
+  font-family: 'Poppins', sans-serif; /* A modern, clean font */
   margin: 0;
   padding: 0;
+  color: #333; /* Default text color */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* *** CRITICAL: Allow vertical scrolling *** */
+html, body {
+  height: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling behavior */
 }
 
 * {
   box-sizing: border-box;
 }
 
-header {
-  background-color: #fbb6c2;
-  color: white;
-  text-align: center;
-  padding: 20px;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; /* A strong, elegant font for headings */
+  color: #8B008B; /* Dark Magenta */
 }
 
-#about {
-  font-family: "Poppins", sans-serif;
-}
-
-#about h1 {
-  font-family: "Montserrat", sans-serif;
-}
-
-#about p {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-/* Adjust header content for smaller screens */
-@media (max-width: 768px) {
-  .home {
-    margin-top: 70px; /* Ensure extra space for fixed navbar */
-    padding: 0 1rem;
-  }
-
-  .home h1 {
-    font-size: 2.5rem; /* Adjust font size */
-    text-align: center; /* Center align text */
-  }
-
-  .home h2 {
-    font-size: 1.25rem; /* Smaller subtitle */
-    text-align: center;
-  }
-
-  .home p {
-    font-size: 0.9rem; /* Smaller paragraph */
-    text-align: center;
-  }
-
-  .home img {
-    width: 100%; /* Make the image responsive */
-    max-width: 300px; /* Set a maximum width */
-    margin: 1rem auto; /* Add spacing */
-  }
+p {
+  font-family: 'Roboto', sans-serif; /* Readable font for paragraphs */
+  line-height: 1.7;
+  color: #4B0082; /* Indigo */
 }
 
 section {
-  padding: 40px 20px;
+  padding: 80px 20px; /* More generous padding for sections */
   text-align: center;
+  position: relative; /* For background animations */
+  /* *** REMOVED: overflow: hidden - this was preventing scrolling *** */
+  min-height: 100vh; /* Each section takes full viewport height */
+  display: flex; /* Use flexbox for vertical centering of content */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
 }
 
-h1, h2 {
-  color: #090a0b;
+/* Background Animations for Sections - Girly Bubbles/Sparkles */
+section:nth-of-type(odd)::before,
+section:nth-of-type(even)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1; /* Subtle effect */
+  pointer-events: none; /* *** ADDED: Prevent interference with scrolling *** */
 }
 
-img {
-  width: 150px;
-  height: auto; /* Maintain aspect ratio */
-  margin-top: 20px;
-  border: none; /* Ensure there is no border */
-  border-radius: 0; /* Make sure the image is not rounded */
-  box-shadow: none; /* If there’s a shadow causing the effect, remove it */
+/* Bubbles for odd sections */
+section:nth-of-type(odd)::before {
+  background: radial-gradient(circle at top left, #FFC0CB, transparent 50%),
+              radial-gradient(circle at bottom right, #FFD1DC, transparent 50%);
+  animation: floatBubbles 10s infinite alternate ease-in-out;
 }
 
-
-
-/* App.css or Tailwind Custom Styling */
-
-/* General Section Styling */
-#technologies {
-  padding: 40px 20px;
-  background-color: #f9f9f93a; /* Light background to contrast icons */
+/* Sparkles for even sections */
+section:nth-of-type(even)::before {
+  background: radial-gradient(circle at top right, #E6E6FA, transparent 50%),
+              radial-gradient(circle at bottom left, #ADD8E6, transparent 50%); /* Light Purple & Light Blue */
+  animation: sparkleEffect 12s infinite linear;
 }
 
-/* Heading Styling */
-h1 {
-  font-size: 2.5rem; /* Responsive font size for the heading */
-  color: #040303; /* Dark text for good contrast */
-  margin-bottom: 30px;
-  font-weight: 700;
+@keyframes floatBubbles {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10px, 20px) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
-/* Flexbox Container for Icons */
-.flex {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+@keyframes sparkleEffect {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }
 
-/* Card Styling */
-.project-card {
-  background-color: #ffffff41;
-  border: 2px solid #ddd;
-  border-radius: 12px;
-  padding: 20px;
-  height: auto;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-/* Hover Effects for Icons */
-.project-card:hover {
-  transform: scale(1.1); /* Enlarge the icon on hover */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-}
-
-/* Icon Styling */
-.text-7xl {
-  font-size: 4rem; /* Adjust the size of the icons */
-  transition: transform 0.3s ease;
-}
-
-/* Animation for Icons */
-.project-card:hover .text-7xl {
-  transform: translateY(-5px); /* Icons will slightly float up on hover */
-}
-
-/* Responsiveness */
-@media screen and (max-width: 768px) {
-  .flex {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .project-card {
-    width: 80%;
-    margin: 10px auto;
-  }
-}
-
-/* Navbar.css */
+/* --- Navbar Styling --- */
 .navbar {
-  background-color: #fbb6c2; /* baby pink */
-  padding: 1rem;
+  background-color: #FFB6C1; /* Light Pink */
+  padding: 1.2rem 1rem; /* Slightly more padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  position: fixed; /* Keep navbar at top */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure it's above other content */
 }
 
 .navbar a {
-  transition: color 0.3s ease;
+  color: #8B008B; /* Dark Magenta for links */
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
 }
 
 .navbar a:hover {
-  color: #2d3748; /* Darker shade when hovered */
+  color: #FFF0F5; /* Lighter on hover */
+  background-color: #FF69B4; /* Hot Pink background on hover */
+  transform: translateY(-2px); /* Slight lift */
 }
 
-/* Remove bullet points */
+/* --- Main Content Container --- */
+/* *** ADDED: Ensure main content area allows scrolling *** */
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Utility Styles --- */
+.container {
+  max-width: 1200px; /* Max width for content */
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%; /* Ensure container takes full width */
+}
+
+/* Remove bullet points from lists */
 ul {
-  list-style: none; /* Removes bullet points */
+  list-style: none;
   padding: 0;
 }
 
-/* Add space between items */
+/* Add space between list items */
 li {
   margin-bottom: 10px;
 }
 
-.btn-download {
-  display: inline-block;
-  padding: 12px 20px;
-  background-color: #fbb6c2; /* Change to your desired background color */
-  color: rgb(8, 7, 7);
-  font-size: 16px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+/* --- Project Card & Tech Stack Styling --- */
+#projects, #tech-stack {
+  background-color: #FFF0F5; /* Light pink background */
 }
 
-.btn-download:hover {
-  background-color: #fbb6c2; /* Lighter shade on hover */
+#projects h1, #tech-stack h1 {
+  font-size: 3rem;
+  margin-bottom: 50px;
+  color: #C71585; /* Medium Violet Red */
+  position: relative;
 }
 
-#about {
+#projects h1::after, #tech-stack h1::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: #FF69B4; /* Hot Pink underline */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+  border-radius: 2px;
+}
+
+.flex {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  gap: 30px; /* More space between items */
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.project-card, .tech-icon-card { /* Renamed to be more generic for tech stack */
+  background-color: #FFFFFF;
+  border: 1px solid #FFD1DC; /* Soft pink border */
+  border-radius: 15px; /* More rounded */
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(255,105,180,0.1); /* Pink shadow */
+  transition: all 0.4s ease;
+  cursor: pointer;
+  display: flex; /* For tech stack icons */
+  flex-direction: column;
   align-items: center;
-  height: 100vh; /* Full viewport height for vertical centering */
-  text-align: center; /* Center the text */
-  padding: 20px;
-  background-color: #f9f9f93a; /* Optional: Background color */
+  justify-content: center;
+  text-align: center;
+  min-width: 150px; /* Minimum width for tech stack cards */
+}
+
+.project-card:hover, .tech-icon-card:hover {
+  transform: translateY(-10px) scale(1.03); /* Lift and slight enlarge */
+  box-shadow: 0 15px 35px rgba(255,105,180,0.2);
+  border-color: #FF69B4; /* Hot Pink border on hover */
+}
+
+.text-7xl { /* For icons in tech stack */
+  font-size: 4.5rem; /* Larger icons */
+  margin-bottom: 15px;
+  color: #C71585; /* Medium Violet Red */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.tech-icon-card:hover .text-7xl {
+  transform: rotateY(15deg) scale(1.1); /* Fun 3D rotation and enlarge */
+  color: #FF69B4; /* Hot Pink on hover */
+}
+
+/* --- About Section Specific Styles --- */
+#about {
+  background: linear-gradient(135deg, #FFF0F5 0%, #FFD1DC 100%); /* Soft gradient */
+  padding: 100px 20px;
+}
+
+#about h1 {
+  font-size: 3.5rem;
+  color: #8B008B;
+  margin-bottom: 30px;
 }
 
 #about p {
-  max-width: 600px; /* Limit paragraph width for better readability */
-  color: #0b0909;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-top: 20px;
-}
-/* AboutMe.css */
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - 120px); /* Adjust based on any fixed height headers */
-  text-align: center;
-  margin: 0 auto; /* Center it horizontally within its parent */
-  width: 100%; /* Full width to take advantage of centering */
-
+  max-width: 800px; /* Wider paragraph for about section */
+  margin: 0 auto;
+  font-size: 1.3rem;
+  color: #4B0082;
 }
 
-.hover-effect:hover {
-  color: #007bff;  /* Change to the desired hover color */
-  transform: scale(1.1);  /* Optional: Increase size on hover */
-  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+/* --- Scroll Indicator Styles --- */
+/* *** ADDED: Ensure scroll indicators work properly *** */
+.scroll-indicator {
+  position: absolute;
+  z-index: 20;
+  pointer-events: all; /* Ensure indicators are clickable */
 }
 
-.container {
-  max-width: 900px;
+.scroll-indicator button {
+  pointer-events: all; /* Ensure buttons are clickable */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .homeSection .row {
+    flex-direction: column-reverse; /* Image above text on smaller screens */
+  }
+
+  .homeSection .col-lg-7,
+  .homeSection .col-lg-5 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .homeSection h1,
+  .homeSection h2,
+  .homeSection p {
+    text-align: center;
+  }
+
+  .homeSection .socialIconsContainer,
+  .homeSection .downloadButton {
+    justify-content: center; /* Center align social icons and button */
+    align-self: center;
+  }
+
+  .homeSection h1 {
+    font-size: 3rem;
+  }
+
+  .homeSection h2 {
+    font-size: 1.6rem;
+  }
+
+  .homeSection p {
+    font-size: 1rem;
+  }
+
+  .homeSection .headerImage {
+    max-width: 70%;
+    margin-top: 3rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .d-flex {
+  section {
+    padding: 60px 15px;
+  }
+
+  .homeSection h1 {
+    font-size: 2.5rem;
+  }
+
+  .homeSection h2 {
+    font-size: 1.4rem;
+  }
+
+  #projects h1, #tech-stack h1, #about h1 {
+    font-size: 2.5rem;
+  }
+
+  .flex {
     flex-direction: column;
+    align-items: center;
     gap: 20px;
   }
-}
-html {
-  scroll-behavior: smooth;
+
+  .project-card, .tech-icon-card {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .text-7xl {
+    font-size: 3.5rem;
+  }
+
+  /* *** ADDED: Responsive scroll indicators *** */
+  .scroll-indicator {
+    display: flex !important;
+  }
+  
+  .scroll-indicator button {
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 1rem !important;
+  }
 }
 
+/* --- Additional Fixes for Scrolling --- */
+/* *** ADDED: Ensure no elements block scrolling *** */
+* {
+  scroll-margin-top: 80px; /* Account for fixed navbar */
+}
+
+/* Ensure React components don't prevent scrolling */
+#root {
+  height: auto;
+  min-height: 100vh;
+}
