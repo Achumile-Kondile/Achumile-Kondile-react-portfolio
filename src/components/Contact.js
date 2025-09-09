@@ -9,27 +9,35 @@ import {
 } from "react-icons/fa";
 
 const ContactPage = () => {
-  const form = useRef();
+  const form = useRef(); 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    setError('');
+    if (
+      !form.current.user_name.value ||
+      !form.current.user_email.value ||
+      !form.current.message.value
+    ) {
+      setError('Please fill in all fields.');
+      return;
+    }
     emailjs
       .sendForm(
         "service_cet4phl",
         "template_0rvgwsp",
         form.current,
-        "w8oNq9LzBuUiz1nUO"
+        "kY5x3hJvaJQgTV4vX"
       )
       .then(
         (result) => {
-          console.log(result.text);
           setIsSubmitted(true);
           e.target.reset();
         },
         (error) => {
-          console.log(error.text);
+          setError('Failed to send. Please try again later.');
         }
       );
   };
@@ -220,6 +228,7 @@ const ContactPage = () => {
                       required
                     ></textarea>
                   </div>
+                  {error && <div className="text-danger text-center mb-2">{error}</div>}
                   <div className="text-center">
                     <motion.button
                       type="submit"

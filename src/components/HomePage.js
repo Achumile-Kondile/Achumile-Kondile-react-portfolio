@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import headerImg from "../assets/Chumi-removebg-preview.png"; // Ensure this path is correct
+import headerImg from "../assets/Lazise_Kondile-removebg-preview.png"; // Ensure this path is correct
 
 const HomePage = () => {
   const colors = {
@@ -194,7 +194,7 @@ const HomePage = () => {
               <h2 style={styles.subHeading}>A Junior Software Developer</h2>
 
               <motion.a
-                href="/ACHUMILE_KONDILE_Curriculum_Vitae.pdf"
+                href="../assets/Miss Achumile Kondile_Resume.pdf"
                 download
                 className="btn btn-lg"
                 style={styles.downloadButton}

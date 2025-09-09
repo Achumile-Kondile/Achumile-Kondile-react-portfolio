@@ -1,13 +1,10 @@
 import React from "react";
-import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  FaChevronUp,
-  FaChevronDown,
-} from "react-icons/fa";
+
 import projectImage1 from "../assets/Portfolio.png";
 import projectImage2 from "../assets/Expense Tracker.png";
 import projectImage3 from "../assets/Salon.png";
+import projectImage4 from "../assets/support chatbot.png"; // Add your fourth project image here
 
 const Projects = () => {
   const colors = {
@@ -49,268 +46,57 @@ const Projects = () => {
       projectLink:
         "https://github.com/Achumile-Kondile/Pearl-Beauty-Salon.git",
     },
+    {
+      id: 4,
+      title: "Technical Support Project",
+      image: projectImage4,
+      description:
+        "A vibrant, modern, and youthful React chatbot for instant technical support. Features include animated gradient backgrounds, fun emoji mascot, confetti animation, quick actions, emoji reactions, copy-to-clipboard, connect with a human agent, scroll-to-bottom button, and a responsive accessible UI. Made with React.",
+      projectLink:
+        "https://github.com/Achumile-Kondile/technical-support-chatbot.git",
+    },
   ];
 
-  const styles = {
-    projectsSection: {
-      fontFamily: "'Poppins', sans-serif",
-      scrollMarginTop: "4rem",
-      background: `linear-gradient(135deg, ${colors.paleRose} 0%, ${colors.lightLavender} 100%)`,
-      padding: "5rem 1.5rem",
-      minHeight: "100vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      position: "relative",
-    },
-    heading: {
-      color: colors.darkMagenta,
-      fontSize: "3.2rem",
-      fontWeight: "800",
-      textAlign: "center",
-      marginBottom: "1rem",
-      letterSpacing: "0.06em",
-      textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
-    },
-    divider: {
-      width: "90px",
-      height: "6px",
-      background: colors.hotPink,
-      margin: "0 auto 3rem",
-      borderRadius: "4px",
-      boxShadow: `0 0 15px ${colors.hotPink}`,
-    },
-    card: {
-      background: colors.white,
-      borderRadius: "20px",
-      overflow: "hidden",
-      boxShadow: `0 8px 20px ${colors.shadowPink}`,
-      display: "flex",
-      flexDirection: "column",
-      height: "100%",
-      transition: "all 0.35s ease",
-      cursor: "pointer",
-      userSelect: "none",
-    },
-    cardHover: {
-      y: -15,
-      boxShadow: `0 18px 45px ${colors.shadowPink}`,
-      borderColor: colors.hotPink,
-      scale: 1.02,
-    },
-    cardImage: {
-      height: "220px",
-      objectFit: "cover",
-      borderRadius: "20px 20px 0 0",
-      transition: "transform 0.5s ease",
-    },
-    cardImageHover: {
-      scale: 1.07,
-    },
-    cardBody: {
-      padding: "1.8rem 1.6rem 2.2rem",
-      flexGrow: 1,
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-    },
-    cardTitle: {
-      color: colors.mediumVioletRed,
-      fontSize: "1.9rem",
-      fontWeight: "700",
-      marginBottom: "1rem",
-    },
-    cardDescription: {
-      color: colors.indigo,
-      fontSize: "1.05rem",
-      lineHeight: "1.6",
-      marginBottom: "2rem",
-      flexGrow: 1,
-      userSelect: "text",
-    },
-    buttonContainer: {
-      textAlign: "center",
-    },
-    viewProjectButton: {
-      background: `linear-gradient(45deg, ${colors.mediumVioletRed}, ${colors.hotPink})`,
-      color: colors.white,
-      borderRadius: "35px",
-      padding: "0.75rem 2.2rem",
-      fontSize: "1.1rem",
-      fontWeight: "600",
-      border: "none",
-      boxShadow: `0 7px 20px ${colors.shadowPink}`,
-      transition: "all 0.3s ease-in-out",
-      display: "inline-block",
-      userSelect: "none",
-    },
-    viewProjectButtonHover: {
-      transform: "translateY(-4px) scale(1.05)",
-      boxShadow: `0 12px 30px ${colors.shadowPink}`,
-      opacity: 0.95,
-    },
-    scrollUpIndicator: {
-      position: "absolute",
-      top: "30px",
-      left: "50%",
-      transform: "translateX(-50%)",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      cursor: "pointer",
-      zIndex: 10,
-    },
-    scrollDownIndicator: {
-      position: "absolute",
-      bottom: "30px",
-      left: "50%",
-      transform: "translateX(-50%)",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      cursor: "pointer",
-      zIndex: 10,
-    },
-    scrollText: {
-      color: colors.darkMagenta,
-      fontSize: "0.9rem",
-      marginBottom: "8px",
-      fontWeight: "500",
-    },
-    scrollButton: {
-      backgroundColor: colors.hotPink,
-      color: colors.white,
-      border: "none",
-      borderRadius: "50%",
-      width: "50px",
-      height: "50px",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      fontSize: "1.2rem",
-      cursor: "pointer",
-      boxShadow: `0 4px 15px ${colors.shadowPink}`,
-      transition: "all 0.3s ease-in-out",
-    },
-  };
-
-  // Bounce animation keyframes
-  const bounceKeyframes = `
-    @keyframes bounceUp {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-8px);
-      }
-      60% {
-        transform: translateY(-4px);
-      }
-    }
-    @keyframes bounceDown {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(8px);
-      }
-      60% {
-        transform: translateY(4px);
-      }
-    }
-  `;
-
-  // Scroll functions
-  const scrollToPreviousSection = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
-    }
-  };
-
-  const scrollToNextSection = () => {
-    const nextSection = document.getElementById('contact') || document.getElementById('footer');
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-    }
-  };
-
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  };
-
-  const scrollIndicatorAnimation = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { 
-      opacity: 1, 
-      scale: 1,
-      transition: { delay: 1.8, duration: 0.8, ease: "easeOut" }
-    },
-  };
-
   return (
-    <>
-      <style>{bounceKeyframes}</style>
-      <section style={styles.projectsSection} id="projects">
-      
-
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          className="container"
-        >
-          <h2 style={styles.heading}>My Projects</h2>
-          <div style={styles.divider} />
-
-          <div className="row g-4 justify-content-center">
-            {projects.map((project) => (
-              <motion.div
-                key={project.id}
-                className="col-md-6 col-lg-4"
-                initial="hidden"
-                animate="visible"
-                variants={fadeInUp}
-                transition={{ delay: 0.15 + project.id * 0.15, duration: 0.8 }}
-                whileHover={styles.cardHover}
-                style={{ height: "100%" }}
-              >
-                <motion.div style={styles.card} whileHover={{ scale: 1.02 }}>
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    style={styles.cardImage}
-                    whileHover={styles.cardImageHover}
-                    transition={{ duration: 0.5 }}
-                  />
-                  <div style={styles.cardBody}>
-                    <h3 style={styles.cardTitle}>{project.title}</h3>
-                    <p style={styles.cardDescription}>{project.description}</p>
-                    <div style={styles.buttonContainer}>
-                      <motion.a
-                        href={project.projectLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={styles.viewProjectButton}
-                        whileHover={styles.viewProjectButtonHover}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        View Project
-                      </motion.a>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-    </>
+    <section id="projects" className="py-5" style={{ background: colors.lightLavender }}>
+      <div className="container">
+        <h2 className="text-center mb-5" style={{ color: colors.darkMagenta, fontWeight: "bold" }}>
+          Projects
+        </h2>
+        <div className="row g-4 justify-content-center">
+          {projects.map((project) => (
+            <div className="col-md-6 col-lg-4 d-flex" key={project.id}>
+              <div className="card shadow-sm" style={{ width: "100%", borderRadius: "1rem", background: colors.white }}>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="card-img-top"
+                  style={{ borderTopLeftRadius: "1rem", borderTopRightRadius: "1rem", height: "200px", objectFit: "cover" }}
+                />
+                <div className="card-body d-flex flex-column">
+                  <h5 className="card-title" style={{ color: colors.hotPink }}>{project.title}</h5>
+                  <p className="card-text" style={{ color: colors.darkMagenta }}>{project.description}</p>
+                  <a
+                    href={project.projectLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn mt-auto"
+                    style={{
+                      backgroundColor: colors.hotPink,
+                      color: colors.white,
+                      borderRadius: "2rem",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    View Project
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
